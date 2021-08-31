@@ -29,6 +29,7 @@ public class UniversalBuilder {
 
             owner = owner.addGarden(new Garden(gardenName, owner, buildPlants(numberOfPlants)));
         }
+        sc.close();
         return owner;
     }
 
@@ -37,8 +38,7 @@ public class UniversalBuilder {
         List<Plant> plants = new ArrayList<>();
 
         for (int i = 0; i < numberOfPlants; i++) {
-            String name = "Plant " + (i+1);
-            plants.add(new Plant(name));
+            plants.add(new Plant("Plant " + (i+1)));
         }
 
         return plants;
