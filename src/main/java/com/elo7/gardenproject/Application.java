@@ -8,6 +8,7 @@ public class Application {
     public static void main(String[] args) {
         Owner owner = new UniversalBuilder().build();
         System.out.println(owner);
+        owner.getBiggestGarden().printCurrentCategories();
     }
 
 }

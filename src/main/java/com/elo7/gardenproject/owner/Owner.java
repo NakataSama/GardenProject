@@ -44,12 +44,13 @@ public class Owner {
     @Override
     public String toString() {
         return new StringBuilder()
-                .append(name).append("\'s Private Forest").append("\n")
-                .append("================").append("\n")
-                .append("Currently you own ").append(gardens.size()).append(" gardens").append("\n")
-                .append("================").append("\n")
+                .append(name).append("\'s Private Forest\n")
+                .append("================\n")
+                .append("Currently you own ").append(gardens.size()).append(" gardens\n")
+                .append("================\n")
                 .append("Your biggest garden has ").append(getBiggestGarden().getPlantsCount()).append(" plants")
-                .append(" and it's named ").append(getBiggestGarden().getName())
+                .append(" and it's named ").append(getBiggestGarden().getName()).append("\n")
+                .append(getBiggestGarden())
                 .toString();
     }
 }

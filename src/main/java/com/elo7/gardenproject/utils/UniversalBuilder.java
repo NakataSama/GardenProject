@@ -3,10 +3,12 @@ package com.elo7.gardenproject.utils;
 import com.elo7.gardenproject.garden.Garden;
 import com.elo7.gardenproject.owner.Owner;
 import com.elo7.gardenproject.plant.Plant;
+import com.elo7.gardenproject.plant.PlantCategory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class UniversalBuilder {
 
@@ -38,7 +40,8 @@ public class UniversalBuilder {
         List<Plant> plants = new ArrayList<>();
 
         for (int i = 0; i < numberOfPlants; i++) {
-            plants.add(new Plant("Plant " + (i+1)));
+            int id = ThreadLocalRandom.current().nextInt(1, PlantCategory.values().length + 1);
+            plants.add(new Plant("Plant " + (i+1), PlantCategory.getPlantCategoryById(id)));
         }
 
         return plants;
