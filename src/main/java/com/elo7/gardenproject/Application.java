@@ -8,7 +8,11 @@ public class Application {
     public static void main(String[] args) {
         Owner owner = new UniversalBuilder().build();
         System.out.println(owner);
+
+        // Options
         owner.getBiggestGarden().printCurrentCategories();
+        owner.getBiggestGarden().printCurrentPlants();
+        owner.getBiggestGarden().sortGardenByPlantCategory().printCurrentPlants();
     }
 
 }

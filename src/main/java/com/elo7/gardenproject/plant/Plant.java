@@ -28,7 +28,7 @@ public class Plant {
     public String toString() {
         return new StringBuilder()
                 .append("Name [ ").append(name).append(" ]\n")
-                .append("Category [ ").append(plantCategory.getDescription()).append(" ]\n")
+                .append("Category [ ").append(plantCategory.getDescription()).append(" ]")
                 .toString();
     }
 }

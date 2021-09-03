@@ -56,9 +56,15 @@ public class Garden {
             return new Garden(name, owner, plants);
     }
 
+    public Garden sortGardenByPlantCategory() {
+        return new Garden(name, owner, plants.stream()
+                .sorted(Comparator.comparing(plant -> plant.getPlantCategory().getDescription()))
+                .collect(Collectors.toList()));
+    }
+
     public Plant getPlantByName(String name) {
         return plants.stream()
-                .filter(p -> p.getName().toLowerCase().equalsIgnoreCase(name))
+                .filter(p -> p.getName().equalsIgnoreCase(name))
                 .findAny()
                 .orElse(null);
     }
@@ -71,13 +77,13 @@ public class Garden {
                 .collect(Collectors.toList());
     }
 
-    private long getNumberOfDistinctPlantCategories() {;
-        return getSortedDistinctPlantCategories().size();
-    }
-
     public void printCurrentCategories() {
         getSortedDistinctPlantCategories()
                 .forEach(plantCategory -> System.out.println(plantCategory.getDescription()));
+    }
+
+    public void printCurrentPlants() {
+        plants.forEach(System.out::println);
     }
 
     @Override
@@ -85,7 +91,7 @@ public class Garden {
         return new StringBuilder()
                 .append("This garden is called ").append(name + ".\n")
                 .append("It has ").append(getPlantsCount()).append(" plants")
-                .append(", from ").append(getNumberOfDistinctPlantCategories()).append(" different categories.")
+                .append(", from ").append(getSortedDistinctPlantCategories().size()).append(" different categories.")
                 .toString();
     }
 }
